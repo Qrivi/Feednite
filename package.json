@@ -1,0 +1,48 @@
+{
+    "name": "feednite",
+    "version": "1.0.0",
+    "description": "Fortnite news RSS Feed generator",
+    "main": "feed.js",
+    "scripts": {
+        "start": "node feed.js",
+        "dev": "nodemon feed.js --exec \"npm run lintfix && node\"",
+        "watch": "nodemon feed.js",
+        "lint": "standardx",
+        "lintfix": "standardx --fix",
+        "test": "echo \"Error: no test specified\" && exit 1"
+    },
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/Qrivi/feednite.git"
+    },
+    "author": "Kristof Dewilde <git@krivi.be>",
+    "license": "MIT",
+    "bugs": {
+        "url": "https://github.com/Qrivi/feednite/issues"
+    },
+    "homepage": "https://github.com/Qrivi/feednite#readme",
+    "devDependencies": {
+        "nodemon": "^1.19.1",
+        "standardx": "^4.0.0"
+    },
+    "dependencies": {
+        "dateformat": "^3.0.3",
+        "express": "^4.17.1",
+        "sync-request": "^6.1.0",
+        "xml-js": "^1.6.11"
+    },
+    "eslintConfig": {
+        "parserOptions": {
+            "ecmaVersion": 2018
+        },
+        "env": {
+            "es6": true
+        },
+        "rules": {
+            "brace-style": [
+                "error",
+                "1tbs"
+            ]
+        }
+    }
+}
