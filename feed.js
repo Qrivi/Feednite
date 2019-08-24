@@ -21,10 +21,7 @@ function fetch (limit, locale, details) {
     return []
   }
 
-  const url = `${siteRoot}${postsEndpoint}?postsPerPage=${limit}&locale=${locale}&offset=0`
-  const res = request('GET', url)
-  console.log(`${format(new Date())}: Fetched posts from ${url}`)
-
+  const res = request('GET', `${siteRoot}${postsEndpoint}?postsPerPage=${limit}&locale=${locale}&offset=0`)
   return JSON.parse(res.body.toString()).blogList.map(post => ({
     title: {
       _text: post.title
@@ -36,7 +33,7 @@ function fetch (limit, locale, details) {
       _text: `${siteRoot}${post.urlPattern}`
     },
     description: {
-      _cdata: details ? post.content : post.short
+      _cdata: details && post.content ? post.content : post.short
     },
     author: {
       _text: `support@epicgames.desk-mail.com (${post.author})`
@@ -116,6 +113,7 @@ app.get('/', function (req, res) {
   const details = req.query.details ? !/^(false|no(pe)?|off|0)$/i.test(req.query.details) : defaultDetails
   const self = req.protocol + '://' + req.get('host') + req.originalUrl
 
+  console.log(`${format(new Date())}: Fetching ${limit} posts in ${locale} ${ details ? 'with' : 'without'} details.`)
   res.set('Content-Type', 'application/rss+xml; charset=UTF-8')
     .status(200)
     .send(convert.js2xml(parse(fetch(limit, locale, details), locale, self), { compact: true, spaces: 2 }))
