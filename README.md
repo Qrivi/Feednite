@@ -1,6 +1,6 @@
 # Feednite
 
-An RSS feed generator for Fortnite news I wrote in 59 minutes, because much like [Psynix with Rocket League](https://github.com/Qrivi/RLRSS), Epic Games is not providing an RSS feed to follow up on their news updates either.
+An RSS feed generator for Fortnite news I wrote in 59 minutes, because much like [Psyonix with Rocket League](https://github.com/Qrivi/RLRSS), Epic Games is not providing an RSS feed to follow up on their news updates either.
 
 The script generates a very complete and valid RSS feed on the fly and takes 3 optional parameters.
 
