@@ -32,14 +32,14 @@ function fetch (limit, locale, details) {
     link: {
       _text: `${siteRoot}${post.urlPattern}`
     },
-    description: {
-      _cdata: details && post.content ? post.content : post.short
-    },
     author: {
       _text: `support@epicgames.desk-mail.com (${post.author})`
     },
     pubDate: {
       _text: `${format(new Date(post.date), 'ddd, dd mmm yyyy HH:MM:ss')} GMT`
+    },
+    description: {
+      _cdata: layout(post, details)
     },
     category: post.category.map(c => ({ _text: c }))
   }))
@@ -105,6 +105,17 @@ function parse (posts, locale, self) {
   }
 }
 
+// This just formats an article to make it pretty in the feed
+function layout (post, details) {
+  if (!details || !post.content) {
+    return post.short
+  }
+  if (!post.shareImage) {
+    return post.content
+  }
+  return `<img src="${post.shareImage}" alt="${post.title}" style="display:block;width:100%;margin-bottom:25px">${post.content}`
+}
+
 // Set up Express.
 app.use(express.urlencoded({ extended: true }))
 app.get('/', function (req, res) {
@@ -113,7 +124,7 @@ app.get('/', function (req, res) {
   const details = req.query.details ? !/^(false|no(pe)?|off|0)$/i.test(req.query.details) : defaultDetails
   const self = req.protocol + '://' + req.get('host') + req.originalUrl
 
-  console.log(`${format(new Date())}: Fetching ${limit} posts in ${locale} ${ details ? 'with' : 'without'} details.`)
+  console.log(`${format(new Date())}: Fetching ${limit} posts in ${locale} ${details ? 'with' : 'without'} details.`)
   res.set('Content-Type', 'application/rss+xml; charset=UTF-8')
     .status(200)
     .send(convert.js2xml(parse(fetch(limit, locale, details), locale, self), { compact: true, spaces: 2 }))
