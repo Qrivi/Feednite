@@ -21,7 +21,9 @@ Examples:
 -   [https://feednite.herokuapp.com?limit=420&detail=off](https://feednite.herokuapp.com?limit=420&detail=off)
 -   [https://feednite.herokuapp.com?limit=25&detail=true](https://feednite.herokuapp.com?limit=10&detail=true) (default)
 
-## Example
+## Output
+
+Example feed output:
 
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>
@@ -52,6 +54,9 @@ Examples:
   </channel>
 </rss>
 ```
+
+And rendered in [Leaf](https://itunes.apple.com/app/id576338668), my preferred RSS client despite it not getting updates anymore (R.I.P.):
+![](https://i.imgur.com/tVf385A.jpg)
 
 ## Disclaimer
 
