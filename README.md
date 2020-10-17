@@ -1,3 +1,11 @@
+⚠️ **Please deploy Feednite to your own Heroku instance.**
+
+> Too many people are frequently polling the Heroku url mentioned in this readme. If you get an "application error" (usually near the end of the month): no need to report it. It means the demo Heroku account ran out of free dynos and stopped running. It'll be back up the next month.
+
+[![Deploy](https://www.herokucdn.com/deploy/button.svg)](https://heroku.com/deploy)
+
+---
+
 # Feednite
 
 An RSS feed generator for Fortnite news I wrote in 59 minutes, because much like [Psyonix with Rocket League](https://github.com/Qrivi/RLRSS), Epic Games is not providing an RSS feed to follow up on their news updates either.

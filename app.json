@@ -1,0 +1,6 @@
+{
+  "name": "Feednite",
+  "description": "RSS feed for Fortnite news",
+  "repository": "https://github.com/Qrivi/Feednite",
+  "keywords": ["fortnite", "rss", "generator"]
+}
