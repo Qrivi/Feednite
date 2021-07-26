@@ -28,6 +28,7 @@ Examples:
 -   [https://feednite.herokuapp.com?limit=5&detail=1](https://feednite.herokuapp.com?limit=5&detail=1)
 -   [https://feednite.herokuapp.com?limit=420&detail=off](https://feednite.herokuapp.com?limit=420&detail=off)
 -   [https://feednite.herokuapp.com?limit=25&detail=true](https://feednite.herokuapp.com?limit=10&detail=true) (default)
+-   [https://feednite.herokuapp.com?limit=25&detail=true&locale=fr](https://feednite.herokuapp.com?limit=10&detail=true&locale=fr)
 
 ## Output
 
